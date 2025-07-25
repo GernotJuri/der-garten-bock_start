@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Garden Theme - Light Mode - lebendiger und kontrastreicher */
+    --background: 113 40% 92%;        /* Helleres, saftiges Waldgrün */
+    --foreground: 113 30% 18%;        /* Dunkles sattes Grün, klare Lesbarkeit */
+    --card: 113 30% 85%;              /* Warmer Grünton für Karten */
+    --card-foreground: 113 30% 18%;   /* Text auf Karten */
+    --popover: 113 30% 85%;
+    --popover-foreground: 113 30% 18%;
+    --primary: 113 55% 28%;           /* Kräftiges Waldgrün */
+    --primary-foreground: 120 100% 97.3%; /* Helles fast weißes Grün */
+    --secondary: 113 40% 48%;         /* Kräftiges Hellgrün */
+    --secondary-foreground: 120 100% 97.3%;
+    --muted: 113 40% 75%;             /* Gedämpftes Grün */
+    --muted-foreground: 113 30% 40%;  /* Dunkleres gedämpftes Grün */
+    --accent: 113 55% 28%;            /* Intensives Blütenrosa */
+    --accent-foreground: 113 30% 18%;
+    --destructive: 0 80% 45%;         /* Kräftiges Rot */
+    --destructive-foreground: 120 100% 97.3%;
+    --border: 113 40% 70%;            /* Dunklere und klarere Border */
+    --input: 113 40% 70%;
+    --ring: 113 55% 28%;
+    --chart-1: 113 55% 28%;
+    --chart-2: 113 40% 48%;
+    --chart-3: 32 31% 41.4%;
+    --chart-4: 348 65% 60%;
+    --chart-5: 48 82% 65.3%;
+    --radius: 0.75rem;
+  }
+  .dark {
+    /* Garden Theme - Dark Mode */
+    --background: 120 21% 10.2%; /* Dunkelgrün #1a2e1a */
+    --foreground: 120 100% 97.3%; /* Hellgrau #f1f5f1 */
+    --card: 120 15% 15.9%;
+    --card-foreground: 120 100% 97.3%;
+    --popover: 120 15% 15.9%;
+    --popover-foreground: 120 100% 97.3%;
+    --primary: 113 20% 39.6%; /* Hellgrün #68a063 */
+    --primary-foreground: 120 21% 10.2%;
+    --secondary: 32 31% 41.4%; /* Erdbraun #8b6f47 */
+    --secondary-foreground: 120 100% 97.3%;
+    --muted: 120 15% 15.9%;
+    --muted-foreground: 120 8% 63.9%;
+    --accent: 113 20% 39.6%; /* Gold #f0d95c */
+    --accent-foreground: 120 21% 10.2%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 120 100% 97.3%;
+    --border: 120 15% 15.9%;
+    --input: 120 15% 15.9%;
+    --ring: 113 20% 39.6%;
+    --chart-1: 113 20% 39.6%;
+    --chart-2: 32 31% 41.4%;
+    --chart-3: 120 21% 10.2%;
+    --chart-4: 352 22% 79.6%;
+    --chart-5: 48 82% 65.3%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-open-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-cormorant;
+  }
+}
+
+@layer components {
+  .garden-shadow {
+    box-shadow: 0 4px 20px rgba(45, 90, 39, 0.1);
+  }
+
+  .garden-shadow-hover:hover {
+    box-shadow: 0 8px 30px rgba(45, 90, 39, 0.15);
+  }
+
+  .slide-in {
+    animation: slideIn 0.3s ease-out;
+  }
+
+  .slide-out {
+    animation: slideOut 0.3s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideOut {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  .menu-backdrop {
+    backdrop-filter: blur(8px);
+    background: rgba(42, 90, 42, 0.2);
+  }
+
+  .organic-border {
+    border-radius: 20px 8px 20px 8px;
+  }
+
+  .leaf-hover {
+    transition: all 0.3s ease;
+  }
+
+  .leaf-hover:hover {
+    transform: scale(1.25);
+  }
+}
+
+/* Hide Next.js badge and error messages */
+body > nextjs-portal {
+  display: none;
+}
+
+/* Standardzustand: nur Light-Mode sichtbar */
+.logo-dark {
+  display: none;
+}
+.logo-light {
+  display: block;
+}
+
+/* Bei Dark-Mode umkehren */
+.dark .logo-dark {
+  display: block;
+}
+.dark .logo-light {
+  display: none;
+}
+
+
+
+/* Dark Mode Umschaltung */
+.dark .logo-light {
+  display: none;
+}
+.dark .logo-dark {
+  display: block;
+}
+
