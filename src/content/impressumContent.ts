@@ -4,6 +4,7 @@ export const ImpressumContent = {
         title: "Impressum",
     },
     address: {
+        company: "", 
         title: "Anschrift",
         person: "Ing. Gernot Juri",
         street: "Oberwollanigerstr. 3",
